@@ -718,6 +718,362 @@ x='gitam engineering college'
 print(x[len(x)::-5])
 
 
+# ## Today Objectives:
+# ### Python Data Structures
+#          -Lists
+#           -Tuples
+#            -Dictionaries
+# ### Basic Program sets on Data Structures
+# * Advanced Problem Solving
+# * Contact Application (Dictionary object) 
+# ### Data Structures:
+# * To store ,Search and Sort the data
+
+# ### Python Data Structurs
+# #### Lists
+#  - It's one of common data structures supports by Python, the list items are seperated by comma (,) operator and enclosed in square brackets
+#  * Example
+#        -list1=[1,5,7,4,9]
+#        -list2=["Gitam",10,45,"Hyderabad"]
+#        
+
+# In[5]:
+
+
+#example "Creating the list object in python"
+x=[1,4,7,9,10] 
+print(x)  #access the entire term
+print(x[1])   #Access the second item
+print(x[-1])  #Access the last item
+print(x[-2])   #Access the last to 2nd term
+print(x[1:])  #Prints from second term
+print(x[1:4])  #Prints from 2nd term to 4th term
+
+
+# In[9]:
+
+
+# Updating the list item values using index
+x=[1,2,567,876]
+print(x)
+x[1]=440
+print(x)
+
+
+# In[8]:
+
+
+# To delete specific item in the list
+x=[1,2,567,876]
+print(x)
+del x[1]
+print(x)
+
+
+# In[12]:
+
+
+#BAsic List Operators
+lst=[8,4,3,0,3]
+print(len(lst)) #Length of string
+print(lst * 2) #Repetition
+print(len(lst))
+print(9 in lst) # To check whether number is present or not
+print(3 in lst)
+## Access the list items using iteration
+for i in range (len(lst)):
+    print(lst[i],end=" ")
+
+
+# In[14]:
+
+
+# Functions of the list
+lst
+print(max(lst)) # Max element in list
+print(min(lst)) # Min element in list
+print(sum(lst)) # Sum of all elements in the List
+print(sum(lst)//len(lst)) # Gives avg of list elements
+print(sum(lst[1::2])/len(lst[1::2])) # Avg of all the alternate elements
+
+
+# In[46]:
+
+
+lst=[1,2,3,4]
+print(lst)
+lst.append(83) # Adding a new element at the end of list
+print(lst)
+lst.insert(4,24) # Adding an element at particular index
+print(lst)
+lst.index(4) # Returns index value of element
+lst.count(18) # Return the value how many times element repeated
+print(lst.count(3))
+lst.sort() # Sort the elements in ascending order
+lst.pop # Remove the last element from list
+print(lst)
+lst.pop(1) # Remove an element from a particular index
+print(lst)
+lst1=[9,8,0]
+lst.extend(lst1) # Merge the list2 with list1
+print(lst)
+lst.reverse() # Reverses the list
+lst.remove(1) # Removes the list
+lst.remove(3) # Removes that element
+print(lst)
+
+
+# In[35]:
+
+
+x=[1,2,3,4,5]
+print(x[-1::-3])
+
+
+# In[47]:
+
+
+# Function to find the second large item from the list
+def seclarge(x):
+    x.sort()
+    return x[-2]
+x=[1,2,6,3,8]
+seclarge(x)
+
+
+# In[50]:
+
+
+# Generic Large
+def genericlarge(x,n):
+    x.sort()
+    return x[-n]
+x=[7,3,90,3,45,76]
+genericlarge(x,4)
+
+
+# In[52]:
+
+
+# Second least in the list
+def secleast(x):
+    x.sort()
+    return x[1]
+x=[1,9,2,6,3,8]
+secleast(x)
+
+
+# In[53]:
+
+
+# Generic Least
+def genericleast(x,n):
+    x.sort()
+    return x[n]
+x=[7,3,90,3,45,76]
+genericleast(x,3)
+
+
+# ### Searching Algorithm
+# #### Linear Search
+# #### Binary Search
+# 
+# ### Linear Search
+# * Linear search algorithm can be applied on Duplicate and Unique List
+#     - Unique list: All items of the list is appeared only once
+#     - Duplicate List: The items of the list can be appeared more than once
+# * Linear search algorithm can applied on Sorted and unsorted data
+
+# In[3]:
+
+
+# Function to search the data in a list
+# Search is found then return the index <if not return -1
+def linearsearch(x,target):
+    for i in range(len(x)):
+        if x[i]==target:
+            return i
+    return -1
+x=[5,8,3,4,8]
+linearsearch(x,9)
+
+
+# In[7]:
+
+
+# Function 
+# Input : [1,5,9,6,5,15,1,2,5],key=5 # Duplicate
+# Output : 1 4 8
+def linearSearch(x,target):
+    for i in range (len(x)):
+        if x[i]==target:
+            print(i,end=" ")
+    return
+x=[1,5,9,6,5,15,1,2,5]
+linearSearch(x,5)
+
+
+# In[15]:
+
+
+# Function
+#input : list
+# Output : Seq of characters
+# Test case
+#[1,5,9,6,15,1,2,5],target=5 -- # 1 4 8== !! !!!!! !!!!!!!!!
+def linearSearch(x,target):
+    for i in range (len(x)):
+        if x[i]==target:
+            for a in range (1,i+2):
+                print("!",end=" ")
+            print(end=" ")
+    return
+x=[1,5,9,6,5,15,1,2,5]
+linearSearch(x,5)
+
+
+# In[20]:
+
+
+# Function
+# Input : List
+# output : Formatted
+# Test case :
+# [12,2,45,9,18,15,36] -- 60
+# A list item which is perfect multiples of 3 & 5
+def linearsearch(x):
+    s=0
+    for i in range (len(x)):
+        if  x[i]%3 ==0 and x[i]%5==0:
+            s=s+x[i]
+    return s
+x=[12,2,45,9,18,15,36]
+linearsearch(x)
+
+
+# In[33]:
+
+
+#Function
+# Input : List
+# Output : Formated Output
+# Test Case:
+# [1,2,3,4,5] -- [1,3,8,15,5]
+# [6,5,2,8,2] -- [6,12,40,4,2]
+def plot(x):
+    for i in range(len(x)):
+        if i==0 or i==len(x)-1:
+            print(x[i],end=" ")
+        else:
+            print(x[i-1] * x[i+1],end=" ")
+    return
+x=[1,2,3,4,5]
+plot(x)     
+
+
+# In[36]:
+
+
+# Function 
+# Input : List
+# Output : Formated Output
+# Test Case:
+#[1,6,9,4,16,19,22] -- 1 9 19 22 (If element is surrounded by even numbers print)
+def plot(x):
+    for i in range(len(x)):
+        if i==0 or i==len(x)-1:
+            print(x[i],end=" ")
+        elif x[i-1]%2==0 and x[i+1]%2==0:
+            print(x[i],end=" ")
+    return
+x=[1,6,9,4,16,19,22]
+plot(x)
+
+
+# ### Number to List
+# * Input as Number
+# * Expected Output will be list
+
+# In[51]:
+
+
+# Function for convertion __ Number to list
+# Input -- Number
+# Output -- list
+# Test case :
+#14569 -- [1,4,5,6,9]
+#1990 -- [1,9,9,0]
+def convert(n):
+    i=1
+    s=[]
+    while n!=0:
+        r=n%10
+        s.append(r)
+        n=n//10
+        i=i+1
+    s.reverse()
+    return s 
+n=int(input("enter a number"))
+convert(n)
+
+
+# In[61]:
+
+
+#*** Function to count the occurances of a character in a string
+def repeat(x,target):
+    c=0
+    for i in x:
+        if i==target:
+            c+=1
+    return c
+# (OR)
+#def repeat1(x,target):
+#    return x.count(target)
+n=str(input("enter a string-"))
+m=str(input("enter target element-"))
+repeat(n,m) 
+
+
+# In[65]:
+
+
+# Function to convert string to list
+# Test case:
+# "1 2 3 4 5 6"--[1,2,3,4,5,6]
+def convert(s):
+    x=s.split() # Splits the string
+    numlist=[]
+    for i in x:
+        numlist.append(int(i))
+    return numlist
+s='1 2 3 4 5 6'
+convert(s)
+
+
+# ## Sorting Algorithm
+#   * All the sorting algorithms makes the list into ascending order
+#      - Bubble Sort
+#      - Selection Sort
+#      - Insertion Sort
+
+# ### Bubble Sort
+# * This algorithm compares the adjacent elements, if the first element is greater than second element then its required to swap the elements
+
+# In[70]:
+
+
+# Function to represent the Bubble Sort
+def bubbleSort(s):
+    for j in range(len(s)-1):
+        for i in range (len(s)-1):
+            if s[i] > s[i+1]:
+                s[i],s[i+1]=s[i+1],s[i]
+    return s
+s=[24,46,25,532]
+bubbleSort(s)
+
+
 # In[ ]:
 
 
